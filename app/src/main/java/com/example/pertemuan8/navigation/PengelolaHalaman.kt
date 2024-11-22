@@ -71,6 +71,12 @@ fun Navigasi(
                 onBackButtonClicked = { navController.popBackStack() }
             )
         }
-
+        composable(route = Halaman.Tampil.name){
+            TampilView(
+                mahasiswaStateUI = mahasiswaUiState,
+                krsState = krsStateUi,
+                onBackButtonClicked = {navController.popBackStack()}
+            )
+        }
     }
 }
