@@ -158,7 +158,32 @@ fun RencanaStudiView(
                         }
                     }
                 }
-
+                Spacer(modifier = Modifier.padding(8.dp))
+                //HorizontalDivider()
+                Spacer(modifier = Modifier.padding(8.dp))
+                Text(text = "Klausul Persetujuan Mahasiswa", fontWeight = FontWeight.Bold)
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Checkbox(
+                        checked = cheked,
+                        onCheckedChange = { cheked = it },
+                        enabled = chosenDropdown.isNotBlank() && pilihankelas.isNotBlank()
+                    )
+                    Text(
+                        text = "Saya menyetujui setiap pernyataan yang ada tanpa ada paksaan dari pihak manapun.",
+                    )
+                }
+                Spacer(modifier = Modifier.padding(8.dp))
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceEvenly
+                ) {
+                    Button(onClick = { onBackButtonClicked() }) {
+                        Text(text = "Kembali")
+                    }
+                    Button(onClick = { onSubmitButtonClicked(listData) }, enabled = cheked) {
+                        Text(text = "Lanjut")
+                    }
+                }
             }
         }
 
