@@ -61,6 +61,16 @@ fun Navigasi(
                 }
             )
         }
+        composable(route = Halaman.MataKuliah.name){
+            RencanaStudiView(
+
+                mahasiswa = mahasiswaUiState,
+                onSubmitButtonClicked = {
+                    krsViewModel.saveDataKRS(it)
+                    navController.navigate(Halaman.Tampil.name) },
+                onBackButtonClicked = { navController.popBackStack() }
+            )
+        }
 
     }
 }
