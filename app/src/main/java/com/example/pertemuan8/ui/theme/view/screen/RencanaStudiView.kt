@@ -136,6 +136,28 @@ fun RencanaStudiView(
                 )
                 Spacer(modifier = Modifier.padding(8.dp))
                 //HorizontalDivider()
+                Spacer(modifier = Modifier.padding(8.dp))
+                Text(text = "Pilih Kelas Belajar", fontWeight = FontWeight.Bold)
+                Text(
+                    text = "Silahkan pilih kelas dari mata kuliiah yang anda inginkan",
+                    fontSize = 12.sp,
+                    fontWeight = FontWeight.Light
+                )
+                Spacer(modifier = Modifier.padding(8.dp))
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceEvenly
+                ) {
+                    RuangKelas.listKelas.forEach{ data ->
+                        Row(verticalAlignment = Alignment.CenterVertically){
+                            RadioButton(
+                                selected = pilihankelas == data,
+                                onClick = {pilihankelas = data}
+                            )
+                            Text(data)
+                        }
+                    }
+                }
 
             }
         }
